@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Online Book Store</title>
+
+<style>
+{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:'Segoe UI',sans-serif;
+}
+body{
+    background:#f4f6f9;
+}
+
+/* Top Header */
+#top{
+    height:20vh;
+    background:linear-gradient(to right,#0f2027,#203a43,#2c5364);
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+#top h1{
+    margin-bottom:10px;
+    font-size:32px;
+}
+#top a{
+    color:#ffeb3b;
+    margin:15px;
+    text-decoration:none;
+    font-size:18px;
+    padding:8px 16px;
+    border-radius:6px;
+    transition:0.3s;
+}
+#top a:hover{
+    background:#ffeb3b;
+    color:black;
+}
+
+/* Main Layout */
+#main{
+    display:flex;
+    height:80vh;
+}
+
+/* Left Navigation */
+#left{
+    width:22%;
+    background:#ffffff;
+    padding:20px;
+    box-shadow:2px 0 10px rgba(0,0,0,0.1);
+}
+#left h3{
+    text-align:center;
+    margin-bottom:20px;
+    color:#2c3e50;
+}
+#left a{
+    display:block;
+    padding:12px;
+    margin-bottom:12px;
+    background:#3498db;
+    color:white;
+    border-radius:6px;
+    text-align:center;
+    text-decoration:none;
+    transition:0.3s;
+}
+#left a:hover{
+    background:#2c3e50;
+}
+
+/* Right Content Area */
+#right{
+    width:78%;
+    padding:30px;
+    background:white;
+}
+
+/* Book Cards */
+ul{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    list-style:none;
+    padding:0;
+}
+ul li{
+    background:#f8f9fa;
+    padding:20px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+ul li:hover{
+    transform:translateY(-6px);
+    box-shadow:0 8px 18px rgba(0,0,0,0.2);
+}
+
+/* Forms */
+input,button{
+    width:260px;
+    padding:10px;
+    border-radius:6px;
+    border:1px solid #ccc;
+    margin:8px 0;
+}
+button{
+    background:#3498db;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+button:hover{
+    background:#2c3e50;
+}
+</style>
+
+<script>
+function load(page){
+    let content="";
+    if(page=="home")
+        content="<h2>Welcome</h2><p>This website helps students buy academic books easily.</p>";
+    else if(page=="csbs")
+        content="<h2>CSBS Books</h2><ul><li>Python Programming - ₹450</li><li>Data Analytics - ₹550</li><li>Business Statistics - ₹400</li></ul>";
+    else if(page=="cse")
+        content="<h2>CSE Books</h2><ul><li>C Programming - ₹300</li><li>Data Structures - ₹500</li><li>Operating Systems - ₹550</li></ul>";
+    else if(page=="ece")
+        content="<h2>ECE Books</h2><ul><li>Digital Electronics - ₹400</li><li>Signals & Systems - ₹480</li><li>Microprocessors - ₹520</li></ul>";
+    else if(page=="mech")
+        content="<h2>MECH Books</h2><ul><li>Thermodynamics - ₹600</li><li>Fluid Mechanics - ₹550</li><li>Engineering Drawing - ₹450</li></ul>";
+    else if(page=="login")
+        content="<h2>Login</h2>Username:<input><br><br>Password:<input type='password'><br><br><button>Login</button>";
+    else if(page=="register")
+        content="<h2>Register</h2>Name:<input><br><br>Email:<input type='email'><br><br>Password:<input type='password'><br><br><button>Register</button>";
+    else if(page=="catalog")
+        content="<h2>Catalogue</h2><p>Select department from left.</p>";
+    else if(page=="cart")
+        content="<h2>Your Cart</h2><p>No items added yet.</p>";
+
+    document.getElementById("right").innerHTML=content;
+}
+</script>
+</head>
+
+<body onload="load('home')">
+
+<div id="top">
+<h1>ABC Engineering College - Online Book Store</h1>
+<a href="#" onclick="load('home')">Home</a>
+<a href="#" onclick="load('login')">Login</a>
+<a href="#" onclick="load('register')">Register</a>
+<a href="#" onclick="load('catalog')">Catalogue</a>
+<a href="#" onclick="load('cart')">Cart</a>
+</div>
+
+<div id="main">
+<div id="left">
+<h3>Departments</h3>
+<a href="#" onclick="load('csbs')">CSBS</a>
+<a href="#" onclick="load('cse')">CSE</a>
+<a href="#" onclick="load('ece')">ECE</a>
+<a href="#" onclick="load('mech')">MECH</a>
+</div>
+
+<div id="right"></div>
+</div>
+
+</body>
+</html>
